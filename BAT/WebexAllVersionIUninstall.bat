@@ -1,4 +1,5 @@
 @echo off
+::用于卸载所有Webex不论版本，通过wmic查到GUID后在卸载
 chcp 65001
 echo 正在查找 Webex 产品代码...
 for /f "tokens=2 delims={}" %%i in ('wmic product where "name like '%%Webex%%'" get IdentifyingNumber /format:list ^| findstr IdentifyingNumber') do (
