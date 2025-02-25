@@ -1,8 +1,9 @@
 @echo off
+chcp 65001
 echo 正在查找 Webex 产品代码...
 for /f "tokens=2 delims={}" %%i in ('wmic product where "name like '%%Webex%%'" get IdentifyingNumber /format:list ^| findstr IdentifyingNumber') do (
     set ProductCode={%%i}
-echo %%i
+echo 产品代码为%%i
 )
 
 if not defined ProductCode (
